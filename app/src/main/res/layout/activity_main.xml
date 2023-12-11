@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/lblRol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DATOS FINANCIEROS"
+        android:text="ROL DE PAGOS"
         android:textAllCaps="false"
         android:textColor="#00BCD4"
         android:textSize="34sp"
@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.284" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/lblHoras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HORAS EXTRAS REALIZADAS:"
@@ -86,7 +86,7 @@
         app:layout_constraintVertical_bias="0.463" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/lblCargo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CARGO EN LA EMPRESA:"
@@ -106,7 +106,7 @@
         android:layout_width="371dp"
         android:layout_height="48dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="224dp"
+        android:layout_marginBottom="232dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

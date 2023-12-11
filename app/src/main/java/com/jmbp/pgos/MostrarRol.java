@@ -10,35 +10,15 @@ import android.widget.TextView;
 
 public class MostrarRol extends AppCompatActivity {
     private TextView txtNombreCom, txtCargo, txtSueldoFijo, txtSubsidioAnti, txtHorasExtra, txtSeguroSocial, txtTotal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_rol);
-        txtNombreCom = findViewById(R.id.txtNombreEnvio);
-        txtCargo = findViewById(R.id.txtCargoEnvio);
-        txtSueldoFijo = findViewById(R.id.txtSueldoEnvio);
-        txtSubsidioAnti = findViewById(R.id.txtSubcidioEnvio);
-        txtHorasExtra = findViewById(R.id.txtHorasEnvio);
-        txtSeguroSocial = findViewById(R.id.txtSeguroEnvio);
-        txtTotal = findViewById(R.id.txtTotalEnvio);
+
+        initializeViews();
+
         Button btnRegresar = findViewById(R.id.btregresa);
-
-        Bundle datosEnviados = getIntent().getExtras();
-        if (datosEnviados != null) {
-            String nombreCompleto = datosEnviados.getString("nombreC");
-            String cargo = datosEnviados.getString("cargo");
-            int anios = datosEnviados.getInt("nanios");
-            int hijos = datosEnviados.getInt("nHijos");
-            int nhoras = datosEnviados.getInt("nhoras");
-
-            double sueldoFijo = getSueldo(cargo);
-            double subsidioAnti = calculaSubsidioAntiguedad(getSueldo(cargo), anios, hijos);
-            double horasExtra = calculaHorasExtras(getSueldo(cargo), nhoras);
-            double seguroSocial = calculaSeguroSocial(getSueldo(cargo));
-
-            mostrarResultados(nombreCompleto, cargo, sueldoFijo, subsidioAnti, horasExtra, seguroSocial);
-        }
-
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +26,16 @@ public class MostrarRol extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void initializeViews() {
+        txtNombreCom = findViewById(R.id.txtNombreEnvio);
+        txtCargo = findViewById(R.id.txtCargoEnvio);
+        txtSueldoFijo = findViewById(R.id.txtSueldoEnvio);
+        txtSubsidioAnti = findViewById(R.id.txtSubcidioEnvio);
+        txtHorasExtra = findViewById(R.id.txtHorasEnvio);
+        txtSeguroSocial = findViewById(R.id.txtSeguroEnvio);
+        txtTotal = findViewById(R.id.txtTotalEnvio);
     }
 
     private void mostrarResultados(String nombreCompleto, String cargo, double sueldoFijo, double subsidioAnti, double horasExtra, double seguroSocial) {
@@ -67,7 +57,6 @@ public class MostrarRol extends AppCompatActivity {
     private void setTextViewCurrency(TextView textView, double amount) {
         textView.setText(String.format("$%.2f", amount));
     }
-
 
     private static double calculaSeguroSocial(double sueldo) {
         return 0.0891 * sueldo;
@@ -95,6 +84,5 @@ public class MostrarRol extends AppCompatActivity {
             default:
                 return 0.0;
         }
-
     }
 }

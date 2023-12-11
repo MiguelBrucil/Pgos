@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MostrarRol extends AppCompatActivity {
-    private TextView txtNombreCompleto, txtCargo, txtSueldoFijo, txtSubsidioAnti, txtHorasExtra, txtSeguroSocial, txtTotal;
+    private TextView txtNombreCom, txtCargo, txtSueldoFijo, txtSubsidioAnti, txtHorasExtra, txtSeguroSocial, txtTotal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_rol);
-        txtNombreCompleto = findViewById(R.id.txtNombreEnvio);
+        txtNombreCom = findViewById(R.id.txtNombreEnvio);
         txtCargo = findViewById(R.id.txtCargoEnvio);
         txtSueldoFijo = findViewById(R.id.txtSueldoEnvio);
         txtSubsidioAnti = findViewById(R.id.txtSubcidioEnvio);
@@ -49,7 +49,7 @@ public class MostrarRol extends AppCompatActivity {
     }
 
     private void mostrarResultados(String nombreCompleto, String cargo, double sueldoFijo, double subsidioAnti, double horasExtra, double seguroSocial) {
-        setTextViewText(txtNombreCompleto, nombreCompleto);
+        setTextViewText(txtNombreCom, nombreCompleto);
         setTextViewText(txtCargo, cargo);
         setTextViewCurrency(txtSueldoFijo, sueldoFijo);
         setTextViewCurrency(txtSubsidioAnti, subsidioAnti);
